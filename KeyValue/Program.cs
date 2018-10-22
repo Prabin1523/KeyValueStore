@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KeyValue;
 
 namespace KeyValueStore
 {
@@ -10,18 +11,17 @@ namespace KeyValueStore
     {
         static void Main(string[] args)
         {
-          
-
+            var d = new MyDictionary();
+            try
+            {
+                Console.WriteLine(d["Cats"]);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            d["Cats"] = 42;
+            d["Dogs"] = 17;
+            Console.WriteLine($"{(int)d["Cats"]}, {(int)d["Dogs"]}");
         }
-
-       
-    }
-    struct KeyValue
-    {
-        public string Key; 
-
-        public string Object;
-       
-
-    }
-}
+}   }
